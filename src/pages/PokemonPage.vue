@@ -12,10 +12,10 @@
         :pokemons="pokemonArr" 
         @selection="checkAnswer"/>
 
-    <div v-if="showAnswer" class="fadee-in">
-        <h2>{{ message }}</h2>
+    <template v-if="showAnswer">
+        <h2 class="fadee-in">{{ message }}</h2>
         <button @click="newGame" class="btnNewGame">Nuevo Juego</button>
-    </div>
+    </template>
 </div>
 </template>
 
@@ -58,6 +58,7 @@ export default {
             this.showPokemon = false
             this.showAnswer = false
             this.pokemonArr = []
+            this.pokemon = null
             this.mixPokemonArray()
         }
     },
