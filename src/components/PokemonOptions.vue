@@ -1,17 +1,25 @@
 <template>
 <div class="options-container">
     <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
+        <li
+          v-for="pokemon in pokemons"
+          :key="pokemon.id"
+          @click="$emit('selection', pokemon.id)">
+            {{pokemon.name}}
+        </li>
     </ul>
 </div>
 </template>
 
 <script>
 export default {
-    name: 'PokemonOptions'
+    name: 'PokemonOptions',
+    props: {
+        pokemons: {
+            type: Array,
+            required: true
+        }
+    }
 }
 </script>
 
@@ -20,15 +28,22 @@ ul {
     list-style-type: none;
 }
 li {
-    background-color: white;
+    background-color: rgb(144, 195, 92);
     border-radius: 8px;
-    border: 1px solid rgba(255, 0, 0, 0.2);
+    border: 2px solid rgb(255, 136, 0);
     cursor: pointer;
     margin-bottom: 15px;
     width: 250px;
+    height: 50px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
 }
 li:hover {
     background-color: rgb(251, 247, 0, 0.4);
+    animation: ease-in-out;
 }
 .options-container {
     display: flex;
