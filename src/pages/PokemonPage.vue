@@ -13,7 +13,7 @@
         @selection="checkAnswer"/>
 
     <template v-if="showAnswer">
-        <h2 class="fadee-in">{{ message }}</h2>
+        <h2 class="fade-in">{{ message }}</h2>
         <button @click="newGame" class="btnNewGame">Nuevo Juego</button>
     </template>
 </div>
